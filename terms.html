@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service – SereniTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:         #F7F6F2;
+      --card:       #FFFFFF;
+      --sage:       #7A9E7E;
+      --sage-light: #EBF2EC;
+      --sage-dark:  #5C7A60;
+      --lavender:   #B8A9C9;
+      --text:       #2E2E2E;
+      --muted:      #8A8A8A;
+      --border:     #E4E1D8;
+      --shadow:     0 4px 32px rgba(90,90,80,0.10);
+      --radius:     20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(184,169,201,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 85%, rgba(122,158,126,0.14) 0%, transparent 70%);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 64px;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      align-self: flex-start;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto 24px;
+    }
+
+    .back-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--sage-dark);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-link a:hover { color: var(--sage); }
+
+    .back-arrow { font-size: 1rem; line-height: 1; }
+
+    /* ── Main card ── */
+    .doc-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 680px;
+      padding: 52px 52px 48px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--lavender), var(--sage), var(--lavender));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    /* ── Page header ── */
+    .doc-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      background: var(--sage-light);
+      border-radius: 50%;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .doc-header-text { flex: 1; }
+
+    .doc-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--sage);
+      letter-spacing: 0.2px;
+      margin-bottom: 2px;
+    }
+
+    .doc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+
+    .doc-meta {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── Sections ── */
+    .doc-section {
+      margin-bottom: 36px;
+    }
+
+    .doc-section:last-of-type { margin-bottom: 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--sage-light);
+      border-radius: 8px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .doc-body {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .doc-list {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .doc-list li::before {
+      content: '·';
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+
+    /* Warning box — used for medical disclaimer */
+    .warning-box {
+      background: #FFF8EC;
+      border-left: 3px solid #F0C060;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin-top: 10px;
+    }
+
+    .warning-box p {
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: #6B4E10;
+      line-height: 1.6;
+    }
+
+    /* Info box — used for billing info */
+    .info-box {
+      background: var(--sage-light);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin-top: 10px;
+    }
+
+    .info-box p {
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: var(--sage-dark);
+      line-height: 1.6;
+    }
+
+    .contact-link {
+      color: var(--sage-dark);
+      font-weight: 400;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+    .contact-link:hover { color: var(--sage); }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .footer-brand span { color: var(--sage); }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    @media (max-width: 520px) {
+      .doc-card { padding: 36px 24px 32px; }
+      .doc-title { font-size: 1.55rem; }
+      .doc-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-link">
+    <a href="index.html">
+      <span class="back-arrow">←</span> Back to app
+    </a>
+  </div>
+
+  <div class="doc-card">
+
+    <!-- Page header -->
+    <div class="doc-header">
+      <div class="doc-icon">📋</div>
+      <div class="doc-header-text">
+        <p class="doc-brand">SereniTrack</p>
+        <h1 class="doc-title">Terms of Service</h1>
+        <p class="doc-meta">Last updated: May 2025 &nbsp;·&nbsp; Version 1.0</p>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">🌿</span>
+        This is a wellness tool, not a medical device
+      </h2>
+      <p class="doc-body">
+        SereniTrack provides general wellness suggestions inspired by Ayurveda, yoga, and
+        mindfulness practices. It is a personal wellbeing aid, not a medical product, clinical
+        tool, or regulated health service of any kind.
+      </p>
+      <div class="warning-box">
+        <p>
+          ⚠️ The suggestions provided by SereniTrack are for general informational and
+          wellness purposes only. They are generated by an AI model and have not been reviewed
+          by medical professionals. Do not use this app to diagnose, treat, cure, or prevent
+          any illness or condition.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">🧠</span>
+        Not a substitute for professional advice
+      </h2>
+      <p class="doc-body">
+        SereniTrack is not a substitute for professional mental health support, medical
+        diagnosis, or clinical therapy. If you are experiencing serious mental health
+        difficulties, emotional distress, or any medical concern, please seek qualified
+        professional help.
+      </p>
+      <ul class="doc-list">
+        <li>
+          Using SereniTrack does not create a patient-provider relationship of any kind.
+        </li>
+        <li>
+          In a crisis or emergency, please contact your local emergency services or a crisis
+          helpline immediately.
+        </li>
+        <li>
+          SereniTrack bears no liability for decisions made based on suggestions provided by
+          the app.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">🆓</span>
+        Free plan limits
+      </h2>
+      <p class="doc-body">
+        The Free plan is available to all users at no cost and includes the following:
+      </p>
+      <ul class="doc-list">
+        <li>
+          <strong>3 wellness suggestions per day.</strong> The counter resets automatically
+          at midnight local time.
+        </li>
+        <li>
+          Access to Ayurvedic tips, yoga pose guidance, and meditation cues.
+        </li>
+        <li>
+          No account or registration required. Usage is tracked locally in your browser only.
+        </li>
+        <li>
+          SereniTrack reserves the right to adjust the free tier limit with reasonable notice
+          to users.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">💳</span>
+        Pro plan — billing and cancellation
+      </h2>
+      <p class="doc-body">
+        The Pro plan provides unlimited suggestions and additional features for a monthly
+        subscription fee.
+      </p>
+      <div class="info-box">
+        <p>
+          Pro Plan: £9.99 / month &nbsp;·&nbsp; Billed monthly via Stripe &nbsp;·&nbsp;
+          Cancel anytime from your account dashboard
+        </p>
+      </div>
+      <ul class="doc-list" style="margin-top:12px">
+        <li>
+          Payment is processed securely by Stripe. SereniTrack does not store your card
+          details at any point.
+        </li>
+        <li>
+          Subscriptions renew automatically each month on the same calendar date as the
+          original purchase.
+        </li>
+        <li>
+          You may cancel at any time. Cancellation takes effect at the end of the current
+          billing period — you retain Pro access until then.
+        </li>
+        <li>
+          Refunds are not issued for partial billing periods, except where required by
+          applicable consumer protection law.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">📢</span>
+        Pricing changes
+      </h2>
+      <p class="doc-body">
+        SereniTrack reserves the right to change subscription pricing at any time. If pricing
+        changes affect your active subscription, you will be notified at least
+        <strong>30 days in advance</strong> via email or an in-app notice before the new
+        price takes effect. Continued use of the Pro plan after the notice period constitutes
+        acceptance of the updated pricing. If you do not accept the new price, you may cancel
+        your subscription before the change takes effect.
+      </p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">✉️</span>
+        Contact
+      </h2>
+      <p class="doc-body">
+        For questions about these terms, your subscription, or billing, please contact us at:
+        <br /><br />
+        <a class="contact-link" href="mailto:support@serenitrack.app">support@serenitrack.app</a>
+        <br /><br />
+        We aim to respond within 5 business days.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <p class="footer-brand">Sereni<span>Track</span></p>
+      <p class="footer-tagline">Rooted in Ayurveda · Yoga · Mindfulness</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

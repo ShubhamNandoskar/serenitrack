@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – SereniTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:         #F7F6F2;
+      --card:       #FFFFFF;
+      --sage:       #7A9E7E;
+      --sage-light: #EBF2EC;
+      --sage-dark:  #5C7A60;
+      --lavender:   #B8A9C9;
+      --text:       #2E2E2E;
+      --muted:      #8A8A8A;
+      --border:     #E4E1D8;
+      --shadow:     0 4px 32px rgba(90,90,80,0.10);
+      --radius:     20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(184,169,201,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 85%, rgba(122,158,126,0.14) 0%, transparent 70%);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 64px;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      align-self: flex-start;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto 24px;
+    }
+
+    .back-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--sage-dark);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-link a:hover { color: var(--sage); }
+
+    .back-arrow { font-size: 1rem; line-height: 1; }
+
+    /* ── Main card ── */
+    .doc-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 680px;
+      padding: 52px 52px 48px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--lavender), var(--sage), var(--lavender));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    /* ── Page header ── */
+    .doc-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      background: var(--sage-light);
+      border-radius: 50%;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .doc-header-text { flex: 1; }
+
+    .doc-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--sage);
+      letter-spacing: 0.2px;
+      margin-bottom: 2px;
+    }
+
+    .doc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+
+    .doc-meta {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── Sections ── */
+    .doc-section {
+      margin-bottom: 36px;
+    }
+
+    .doc-section:last-of-type { margin-bottom: 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--sage-light);
+      border-radius: 8px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .doc-body {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* Inline list items */
+    .doc-list {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .doc-list li::before {
+      content: '·';
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+
+    /* Highlight box — used for "what we do NOT collect" */
+    .highlight-box {
+      background: var(--sage-light);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin-top: 10px;
+    }
+
+    .highlight-box p {
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: var(--sage-dark);
+      line-height: 1.6;
+    }
+
+    /* Contact link */
+    .contact-link {
+      color: var(--sage-dark);
+      font-weight: 400;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+    .contact-link:hover { color: var(--sage); }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .footer-brand span { color: var(--sage); }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    @media (max-width: 520px) {
+      .doc-card { padding: 36px 24px 32px; }
+      .doc-title { font-size: 1.55rem; }
+      .doc-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-link">
+    <a href="index.html">
+      <span class="back-arrow">←</span> Back to app
+    </a>
+  </div>
+
+  <div class="doc-card">
+
+    <!-- Page header -->
+    <div class="doc-header">
+      <div class="doc-icon">🔒</div>
+      <div class="doc-header-text">
+        <p class="doc-brand">SereniTrack</p>
+        <h1 class="doc-title">Privacy Policy</h1>
+        <p class="doc-meta">Last updated: May 2025 &nbsp;·&nbsp; Version 1.0</p>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">📦</span>
+        What we collect
+      </h2>
+      <p class="doc-body">
+        SereniTrack is designed to collect as little as possible. We store only the following
+        two pieces of data, entirely inside your own browser — nothing is sent to any server.
+      </p>
+      <ul class="doc-list">
+        <li>
+          <strong>Anonymous usage count</strong> — a single number that tracks how many
+          suggestions you have used today. This resets automatically at midnight and is never
+          linked to any personal identifier.
+        </li>
+        <li>
+          <strong>Consent record</strong> — a simple flag (true/false) confirming that you have
+          read and agreed to these terms. This is stored so the consent modal does not appear on
+          every visit.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">🚫</span>
+        What we do NOT collect
+      </h2>
+      <p class="doc-body">
+        We want to be explicit. SereniTrack does not collect, store, transmit, or process
+        any of the following:
+      </p>
+      <div class="highlight-box">
+        <p>
+          Your name &nbsp;·&nbsp; Email address &nbsp;·&nbsp; Phone number &nbsp;·&nbsp;
+          IP address &nbsp;·&nbsp; Location &nbsp;·&nbsp; Mood text you type &nbsp;·&nbsp;
+          Health or medical data &nbsp;·&nbsp; Biometric data &nbsp;·&nbsp; Device fingerprint
+        </p>
+      </div>
+      <p class="doc-body" style="margin-top:12px">
+        The mood text you enter is sent directly to the AI model to generate your suggestion
+        and is then discarded. It is never stored in our systems or your browser.
+      </p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">⏱️</span>
+        How long we keep it
+      </h2>
+      <ul class="doc-list">
+        <li>
+          The daily usage counter resets automatically every midnight. After the reset, the
+          previous count is gone permanently.
+        </li>
+        <li>
+          The consent flag has no expiry — it persists in your browser until you clear your
+          browser storage or uninstall the app.
+        </li>
+        <li>
+          Nothing is stored on any external server. There is no database, no account, no cloud
+          backup. If you clear your browser data, all SereniTrack data is gone.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">⚖️</span>
+        Your rights
+      </h2>
+      <p class="doc-body">
+        Because all data lives exclusively in your browser, you are always in full control.
+      </p>
+      <ul class="doc-list">
+        <li>
+          <strong>View your data</strong> — open your browser's DevTools (F12) → Application →
+          Local Storage → find <code>serenitrack_usage</code> and <code>serenitrack_consent</code>.
+        </li>
+        <li>
+          <strong>Delete your data</strong> — clear the two keys above in DevTools, or go to
+          your browser Settings → Privacy → Clear browsing data → Cached data and cookies.
+        </li>
+        <li>
+          <strong>Withdraw consent</strong> — delete the <code>serenitrack_consent</code> key
+          from Local Storage. The consent modal will reappear on your next visit.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="doc-section">
+      <h2 class="section-heading">
+        <span class="section-icon">✉️</span>
+        Contact
+      </h2>
+      <p class="doc-body">
+        If you have any questions about this policy or how your data is handled, you can
+        reach the SereniTrack team at:
+        <br /><br />
+        <a class="contact-link" href="mailto:privacy@serenitrack.app">privacy@serenitrack.app</a>
+        <br /><br />
+        We aim to respond within 5 business days.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <p class="footer-brand">Sereni<span>Track</span></p>
+      <p class="footer-tagline">Rooted in Ayurveda · Yoga · Mindfulness</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
