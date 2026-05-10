@@ -19,7 +19,7 @@ SereniTrack is a wellness tool only. It is not a medical device, clinical applic
 ## 2. Live Demo
 
 ```
-Demo URL: https://serenitrack.netlify.app
+Demo URL: [https://serenitrack.netlify.app]
 ```
 
 Open in Chrome or any modern browser. No account or installation required.
