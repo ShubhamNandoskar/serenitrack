@@ -9,7 +9,7 @@ A browser-based wellness companion that translates your daily mood into personal
 SereniTrack is a mood-aware wellness tool built as a single-page HTML application. The user selects a mood score (1–5) and optionally describes how they are feeling in plain text. That input is sent to a large language model, which returns three structured wellness suggestions: an Ayurvedic tip, a yoga pose, and a meditation cue.
 
 **Problem it solves:**
-Most wellness apps are either too generic (static content) or too clinical (symptom trackers). SereniTrack sits in between — it uses AI to make every suggestion feel personally relevant, without collecting any health data or requiring an account.
+Most wellness apps are either too generic (static content) or too clinical (symptom trackers). SereniTrack sits in between it uses AI to make every suggestion feel personally relevant, without collecting any health data or requiring an account.
 
 **Positioning:**
 SereniTrack is a wellness tool only. It is not a medical device, clinical application, or mental health service. Every response includes an explicit disclaimer to that effect.
@@ -65,7 +65,7 @@ Open in Chrome or any modern browser. No account or installation required.
 |---|---|---|
 | UI | Vanilla HTML, CSS, JavaScript | No build step — runs anywhere, easy to inspect |
 | Fonts | Google Fonts (Cormorant Garamond + DM Sans) | Serif/sans pairing suited to a calm wellness aesthetic |
-| AI | OpenRouter.ai → `meta-llama/llama-3.3-70b-instruct:free` | Free-tier access without requiring an Anthropic account |
+| AI | OpenRouter.ai → `meta-llama/llama-3.3-70b-instruct:free` | Free-tier access |
 | State | Browser `localStorage` | No backend dependency; sufficient for a demo |
 | Hosting | Static file (Netlify / Live Server) | Zero infrastructure |
 
