@@ -603,8 +603,8 @@
       </p>
 
       <div class="consent-links">
-        <a class="consent-link" href="privacy.html" target="_blank">Privacy Policy</a>
-        <a class="consent-link" href="terms.html" target="_blank">Terms of Service</a>
+        <button class="consent-link" onclick="alert('Privacy Policy page coming soon.')">Privacy Policy</button>
+        <button class="consent-link" onclick="alert('Terms of Service page coming soon.')">Terms of Service</button>
       </div>
 
       <div class="consent-divider"></div>
@@ -929,6 +929,10 @@
         `🧠 Meditation Cue: [one sentence]\n` +
         `Keep it warm, simple, and under 80 words total.`;
 
+      /* BUG 2 FIX — 10-second timeout via AbortController */
+      const controller = new AbortController();
+      const timeoutId  = setTimeout(() => controller.abort(), 60000);
+
       let response;
       try {
         response = await fetch(ENDPOINT, {
@@ -944,8 +948,16 @@
             max_tokens: 300,
             messages:   [{ role: 'user', content: userPrompt }],
           }),
+          signal: controller.signal,
         });
       } catch (networkErr) {
+        /* AbortError means the 60-second timer fired */
+        if (networkErr.name === 'AbortError') {
+          throw {
+            headline: 'This is taking longer than expected.',
+            detail:   'Please check your connection and try again.'
+          };
+        }
         throw {
           headline: 'Network error — browser blocked the API call.',
           detail:
@@ -953,6 +965,8 @@
               ? 'You are opening this file directly (file:// URL). Browsers block all external requests from file:// pages. Fix: open VS Code → right-click index.html → "Open with Live Server". Or run: python -m http.server 8080 in this folder, then visit http://localhost:8080'
               : 'Check your internet connection and try again. If the problem persists, open F12 → Console for details.'
         };
+      } finally {
+        clearTimeout(timeoutId); /* cancel timer if fetch resolved before 10s */
       }
 
       if (!response.ok) {
@@ -999,6 +1013,22 @@
 
       try {
         const raw = await fetchSuggestion(selectedMood, note);
+
+        /* BUG 1 FIX — validate all 3 sections are present and non-empty.
+           parseSuggestions returns '—' as the fallback when a section is
+           missing from the model response. Any '—' means an incomplete
+           result — show an error and do NOT increment the counter. */
+        const items = parseSuggestions(raw);
+        if (items.some(s => !s.text || s.text === '—')) {
+          showError(
+            'We could not generate a complete suggestion.',
+            'Please try again.'
+          );
+          return; /* exits try block; counter is not touched */
+        }
+
+        /* BUG 3 FIX — increment ONLY here, after a validated complete result.
+           Any earlier exit (network error, timeout, blank section) skips this. */
         incrementUsage();
         refreshUsageBar();
         showResult(raw);
