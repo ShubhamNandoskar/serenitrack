@@ -128,7 +128,7 @@ The consent modal on first visit satisfies the requirement for informed, affirma
 - White-label option for wellness studios
 
 **Stripe integration (production):**
-Clicking "Upgrade to Pro" would open a Stripe Checkout session created server-side via a Vercel function. On successful payment, a Stripe webhook updates the user's plan status in Supabase. The frontend reads that status on load to unlock the Pro experience. Cancellations are handled via the Stripe customer portal — no custom cancellation flow needed.
+Clicking "Upgrade to Pro" would open a Stripe Checkout session created server-side via a Vercel function. On successful payment, a Stripe webhook updates the user's plan status in Supabase. The frontend reads that status on load to unlock the Pro experience. Cancellations are handled via the Stripe customer portal no custom cancellation flow needed.
 
 In the demo, clicking "Upgrade to Pro" displays a static confirmation message.
 
@@ -138,7 +138,7 @@ In the demo, clicking "Upgrade to Pro" displays a static confirmation message.
 
 ### Why no backend in the demo
 
-The demo prioritises concept clarity and UX over engineering infrastructure. A backend would require deployment, environment variables, auth, and a database — all of which add friction when the goal is to evaluate product thinking and UI quality. Everything that matters for the demo — the AI call, the usage gate, the consent flow, the upgrade wall — works correctly without a server.
+The demo prioritises concept clarity and UX over engineering infrastructure. A backend would require deployment, environment variables, auth, and a database all of which add friction when the goal is to evaluate product thinking and UI quality. Everything that matters for the demo the AI call, the usage gate, the consent flow, the upgrade wall works correctly without a server.
 
 The trade-off is that the API key is visible in the source. This is intentional and acceptable for a demo. It is not acceptable in production.
 
@@ -207,7 +207,7 @@ To use the Anthropic API directly instead, the comment block in the script lists
 
 - **No real health data is collected or stored at any point.** Mood input is transient — it goes to the LLM and is discarded. The only localStorage values are a daily usage count and a consent flag.
 
-- **The free-tier limit is bypassable** by clearing localStorage or using a private window. This is a known and accepted limitation of a client-only demo. In production, enforcement moves server-side via the API proxy.
+- **The free-tier limit is bypassable** by clearing localStorage or using a private window. This is a known and accepted limitation of a client only demo. In production, enforcement moves server-side via the API proxy.
 
 - **LLM responses are non-deterministic.** On rare occasions the free-tier model returns an empty response or fails to follow the output format. The app handles both cases: empty responses show a descriptive error with a retry prompt; format mismatches fall back to a dash (`—`) in the relevant field.
 
